@@ -16,13 +16,13 @@ def home(request):
     
     return render(request,"crypto/home.html",{'news_api':news_api,'rate_api':rate_api})
 
-def prices(request):
+def detail(request):
     if request.method =="POST":
         q = request.POST["query"].upper()
         if q in ['BTC','XRP','ETH','BCH','EOS','LTC','XLM']:
             apiUrl="https://min-api.cryptocompare.com/data/pricemultifull?fsyms="+q+"&tsyms=USD"
             print(apiUrl)
             queryData=json.loads((requests.get(apiUrl)).content)
-            return render(request,"crypto/prices.html",{"queryData":queryData,'currency':q})
+            return render(request,"crypto/detail.html",{"queryData":queryData,'currency':q})
     
-    return render(request,"crypto/prices.html",{"queryData":"Please type the correct currency code in Search Button"})
+    return render(request,"crypto/detail.html",{"queryData":"Please type the correct currency code in Search Button"})

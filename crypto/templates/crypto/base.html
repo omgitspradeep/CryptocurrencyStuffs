@@ -18,15 +18,11 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'prices'%}">Detail Info</a>
-        </li>
-      </ul>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
 
-      <form class="d-flex" method="POST" action="{% url 'prices'%}"> {% csrf_token %}
-        <input class="form-control me-2" type="search" placeholder="Find Crypto" aria-label="Search" name="query">
-        <button class="btn btn-outline-warning" type="submit">Find</button>
+      <form class="d-flex" method="POST" action="{% url 'detail'%}"> {% csrf_token %}
+        <input class="form-control me-2" type="search" placeholder="Search Crypto" aria-label="Search" name="query">
+        <button class="btn btn-outline-warning" type="submit">Search</button>
       </form>
 
     </div>
