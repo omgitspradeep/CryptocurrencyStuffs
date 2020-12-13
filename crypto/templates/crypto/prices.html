@@ -1,0 +1,19 @@
+{% extends 'crypto/base.html' %}
+{%block content%}
+    {%if currency%}
+
+        {% for key, value in queryData.RAW.items %}
+            <div class="jumbotron bg-light">
+                <h1 class="display-4">Detail information on {{currency}}</h1>
+                {%for k,v in value.USD.items%}
+                    <h4> {{k|title}}    :     {{v}}  <h4>
+                {%endfor%}
+            </div> <br/><br/>
+        {% endfor %}
+
+
+    {%else%}
+        {{queryData}}
+    {%endif%}
+
+{%endblock content%}
